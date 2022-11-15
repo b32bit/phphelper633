@@ -30,7 +30,7 @@ function buildInsertUpdateSQL($type, $table, $data, $where=''){
     $sql = sprintf($sql_ptn, $sql_u);
 
   }else if($type=='insert'){
-    $sql_ptn = "INSERT INTO $table (%s) VALUE (%s)";
+    $sql_ptn = "INSERT INTO $table (%s) VALUES (%s)";
 
     $sql_f = " (".(rtrim($sql_f, ',')).") ";
     $sql_v = " (".(rtrim($sql_v, ',')).") ";
