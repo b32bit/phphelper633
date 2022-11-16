@@ -12,15 +12,15 @@ function buildInsertUpdateSQL($type, $table, $data, $where=''){
   $sql_u = $sql_f = $sql_v = '';
 
   foreach ($data as $f => $v) {
+    $v = mysqli_real_escape_string($v);
+    
     if($type=='update'){
-
       $sql_u .= sprintf(" %s='%s',", $f, $v);
-
+      
     }else if($type=='insert'){
       $sql_f .= $v.',';
       $sql_v .= " '".$f."',";
     }
-
   }
   if($type=='update'){
     $sql_ptn = "UPDATE $table SET %s WHERE ".$where;
@@ -37,9 +37,7 @@ function buildInsertUpdateSQL($type, $table, $data, $where=''){
 
     $sql = sprintf($sql_ptn, $sql_f, $sql_v);
   }
-
   return $sql;
-
 }
 
 ?>
