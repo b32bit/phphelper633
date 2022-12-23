@@ -1,3 +1,4 @@
+<?php
 function console_log($args = false){
 	$args_as_json = json_encode($args);
 
@@ -16,3 +17,4 @@ function dd($var=false){
 		echo '</blockquote>';
 	}
 }
+?>
