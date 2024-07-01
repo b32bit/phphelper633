@@ -1,4 +1,7 @@
 <?php
+// one row echo script
+echo "<script>console.log(".json_encode($log).") </script>";
+
 function console_log($args = false){
 	$args_as_json = json_encode($args);
 
